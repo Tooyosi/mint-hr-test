@@ -7,7 +7,7 @@ import AllPayments from '../../../assets/vectors/AllPayments.png'
 import ManualSettlements from '../../../assets/vectors/ManualSettlements.png'
 function Sidebar(props) {
     return (
-        <SidebarStyle className="col-2 p-3">
+        <SidebarStyle className="py-3">
             <div className="ml-4">
                 <Button variant="success">GENERATE INVOICE</Button>
             </div>

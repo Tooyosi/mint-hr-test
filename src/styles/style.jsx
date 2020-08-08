@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { WHITE, BLUE, GREEN } from './colors';
+import { WHITE, BLUE, GREEN, YELLOW } from './colors';
 
 
 export const NavContainer = styled.div`
@@ -40,7 +40,9 @@ export const NavContainer = styled.div`
 
 export const SidebarStyle = styled.div`
         background-color: white;
-        // width: 260px;
+        min-height: 100vh;
+        position: absolute;
+        width: 260px;
         img, i{
             margin-right: 10px
         }
@@ -69,4 +71,51 @@ export const SidebarStyle = styled.div`
             padding: 10px 0
             border-left: 3px solid ${BLUE};;
         }
+`
+
+export const MainStyle = styled.div`
+        margin-left: 260px;
+`
+
+export const WhiteBackground = styled.div`
+    // margin: auto 2px;
+    background: #FFFFFF;
+    border: 1px solid #EEF8FD;
+    box-sizing: border-box;
+    border-radius: 2px;
+    .btn-light{
+        background: #CCCFD4;
+        &:hover{
+            // transform: rotate(-180deg);
+
+        }
+    }
+
+    .progress{
+        background-color: ${YELLOW};
+        height: 4px;
+    }
+    .orders-txt{
+        font-family: Segoe UI;
+        font-size: 14px;
+        line-height: 16px;
+        color: #262626;
+    }
+    .yellow-color{
+        color: ${YELLOW};
+        font-weight: bold
+    }
+
+    .green-color{
+        color: ${GREEN};
+        font-weight: bold
+
+    }
+
+    
+    .blue-color{
+        color: ${BLUE};
+        font-weight: bold
+
+    }
 `
