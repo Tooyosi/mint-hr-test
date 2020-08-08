@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../components/globals/Header';
+import Sidebar from '../../components/globals/Sidebar';
 
 class Landing extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ class Landing extends Component {
         return (
             <div>
                 <Header />
-                    Landing Page
+                <Sidebar />
             </div>
         );
     }

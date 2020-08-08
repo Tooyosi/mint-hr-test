@@ -7,7 +7,7 @@ import { NavContainer } from '../../styles/style';
 function Header(props) {
     return (
         <NavContainer>
-            <Navbar expand="lg" variant="light" bg="white">
+            <Navbar expand="lg" variant="light" bg="white" sticky="top">
                 <Container fluid>
                     <Navbar.Brand href="#">
                         <Image src={Logo} />
