@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { WHITE, BLUE, GREEN, YELLOW, GREY } from './colors';
+import { WHITE, BLUE, GREEN, YELLOW, GREY, GREY_2 } from './colors';
 
 
 export const NavContainer = styled.div`
@@ -111,7 +111,7 @@ export const WhiteBackground = styled.div`
     box-sizing: border-box;
     border-radius: 2px;
     .btn-light{
-        background: #CCCFD4;
+        background: #${GREY_2};
         &:hover{
             // transform: rotate(-180deg);
 
@@ -184,7 +184,7 @@ export const StyledSearch = styled.div`
 `
 
 export const StyledTable = styled.table`
-    width: 100%;
+    width: fill-available !important;
     margin-top: 10px;
     margin-bottom: 10px;
     thead{
@@ -197,7 +197,7 @@ export const StyledTable = styled.table`
     tbody{
         background-color: ${WHITE};
         td{
-            border-bottom: 1px solid #CCCFD4;   
+            border-bottom: 1px solid #${GREY_2};   
             font-family: Segoe UI;
             font-size: 14px;
             line-height: 19px;
@@ -213,6 +213,41 @@ export const StyledTable = styled.table`
         padding: 10px;
         font-size: small;
         background: #7F8FA4;
+    }
+
+    .pending{
+        color: ${YELLOW};         
+    }
+    .reconcilled{
+        color: ${GREEN};         
+    }
+    .un-reconcilled{
+        color: #C4C4C4;
+    }
+    .status-div{
+        border: 1px solid #${GREY_2};
+        box-sizing: border-box;
+        border-radius: 30px;    
+        padding: 10px 20px;
+        font-size: small;
+        text-transform: capitalize;
+        .pending{
+            background: ${YELLOW};         
+        }
+        .reconcilled{
+            background: ${GREEN};         
+        }
+        .un-reconcilled{
+            background: #C4C4C4;
+        }
+        .icon{
+            width: 9px;
+            border-radius: 50px;
+            padding: 0px 8px;   
+        }
+    }
+    .btn-light{
+        background transparent !important;
     }
 
 `
