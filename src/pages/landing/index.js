@@ -57,6 +57,38 @@ const options = {
     }
 };
 
+const paymentData = [{
+    type: 'Apple Mac Book 15" 250 SSD 12GB',
+    price: '$73430',
+    transNo: '1234567890',
+    time: '12:30',
+    status: "pending"
+}, {
+    type: 'Apple Mac Book 15" 250 SSD 12GB',
+    price: '$73430',
+    transNo: '1234567890',
+    time: '12:30',
+    status: "reconcilled"
+}, {
+    type: 'Apple Mac Book 15" 250 SSD 12GB',
+    price: '$73430',
+    transNo: '1234567890',
+    time: '12:30',
+    status: "un-reconcilled"
+}, {
+    type: 'Apple Mac Book 15" 250 SSD 12GB',
+    price: '$73430',
+    transNo: '1234567890',
+    time: '12:30',
+    status: "pending"
+}, {
+    type: 'Apple Mac Book 15" 250 SSD 12GB',
+    price: '$73430',
+    transNo: '1234567890',
+    time: '12:30',
+    status: "reconcilled"
+}]
+
 class Landing extends Component {
     constructor(props) {
         super(props);
@@ -151,7 +183,7 @@ class Landing extends Component {
                             </Col>
                         </Row>
                         <Row className="mt-3">
-                            <Payments />
+                            <Payments data={paymentData}/>
                         </Row>
                     </Container>
                 </Main>

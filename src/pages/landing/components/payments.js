@@ -1,41 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 import { StyledSelect, StyledSearch, StyledShowSelect, StyledTable } from '../../../styles/style';
 import Icofont from 'react-icofont';
 import { GREY } from '../../../styles/colors';
 
 function Payments(props) {
-    const data = [{
-        type: 'Apple Mac Book 15" 250 SSD 12GB',
-        price: '$73430',
-        transNo: '1234567890',
-        time: '12:30',
-        status: "pending"
-    }, {
-        type: 'Apple Mac Book 15" 250 SSD 12GB',
-        price: '$73430',
-        transNo: '1234567890',
-        time: '12:30',
-        status: "reconcilled"
-    }, {
-        type: 'Apple Mac Book 15" 250 SSD 12GB',
-        price: '$73430',
-        transNo: '1234567890',
-        time: '12:30',
-        status: "un-reconcilled"
-    }, {
-        type: 'Apple Mac Book 15" 250 SSD 12GB',
-        price: '$73430',
-        transNo: '1234567890',
-        time: '12:30',
-        status: "pending"
-    }, {
-        type: 'Apple Mac Book 15" 250 SSD 12GB',
-        price: '$73430',
-        transNo: '1234567890',
-        time: '12:30',
-        status: "reconcilled"
-    }]
+    let [data, updateData] = useState(props.data)
+    
+    let [state, changeState] = useState({
+        searchTerm: '',
+        searchInput: ''
+    })
+
+    const setState = (newState) =>
+    changeState((prevState) => ({
+      ...prevState,
+      ...newState,
+    }))
+    const handleSearch = ({target})=>{
+        setState({[target.name]: target.value})
+    }
+    useEffect(()=>{
+        if(state.searchTerm !== ''){
+            let arrayFilter = props.data
+            let newData = data.filter((a)=>{
+                if(a.status == state.searchTerm.toLocaleLowerCase()){
+                   return a
+                }
+            })
+            updateData(state.searchTerm == "all"? props.data : newData)
+        }
+
+        if(state.searchInput !== ''){
+            let {searchInput: filter} = state
+            let newData = data
+            let filteredArray = newData.filter((i) => {
+                return (i.type.toLowerCase().indexOf(filter) !== -1 || i.price.toLowerCase().indexOf(filter) !== -1 || String(i.transNo).toLowerCase().indexOf(filter) !== -1 || i.time.toLowerCase().indexOf(filter) !== -1 || i.status.toLowerCase().indexOf(filter) !== -1)
+            })
+            if (filteredArray.length > 0) {
+                updateData(filteredArray)
+            } else {
+                updateData(props.data)
+            }
+
+        }
+    }, [state] )
     return (
         <>
             <Col sm={12} className="mt-2">
@@ -54,16 +63,16 @@ function Payments(props) {
 
                 <StyledSearch>
                     <Icofont icon="search-1" className="mt-1" />
-                    <input type="search" placeholder="Search payments" />
+                    <input type="search" value={state.searchInput} name="searchInput" onChange={handleSearch} placeholder="Search payments" />
                 </StyledSearch>
             </Col>
             <Col md={3} className="mt-2">
                 <small>Show</small>
-                <StyledShowSelect as="select" className="w-75 form-control ml-1 d-inline">
-                    <option className="option">All</option>
-                    <option className="option">Reconcilled</option>
-                    <option className="option">Settled</option>
-                    <option className="option">Unsettled</option>
+                <StyledShowSelect as="select" onChange={handleSearch} name="searchTerm" value={state.searchTerm} className="w-75 form-control ml-1 d-inline">
+                    <option className="option" value="all">All</option>
+                    <option className="option" value="reconcilled">Reconcilled</option>
+                    <option className="option" value="settled">Settled</option>
+                    <option className="option" value="unsettled">Unsettled</option>
                 </StyledShowSelect>
             </Col>
             <Col lg={12} sm={12} md={12}>
@@ -106,10 +115,10 @@ function Payments(props) {
                         <ButtonGroup aria-label="First group">
                             <Button variant="light">Previous</Button>
                         </ButtonGroup>
-                        <ButtonGroup  aria-label="Second group">
+                        <ButtonGroup aria-label="Second group">
                             <Button variant="primary">1</Button>
                         </ButtonGroup>
-                        <ButtonGroup  aria-label="Second group">
+                        <ButtonGroup aria-label="Second group">
                             <Button variant="light">2</Button>
                             <Button variant="light">Next</Button>
                         </ButtonGroup>
