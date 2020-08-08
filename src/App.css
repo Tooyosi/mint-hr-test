@@ -7,3 +7,12 @@ body{
         background-color: #F4F4F4 !important;
 
 }
+
+.search{
+    outline: none !important;
+    border: none !important;
+}
+.input-group-text{
+    background-color: transparent !important;
+    border: none !important;
+}

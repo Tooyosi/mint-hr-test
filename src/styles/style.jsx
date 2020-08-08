@@ -7,14 +7,6 @@ export const NavContainer = styled.div`
     nav{
         background: #FFFFFF;
         box-shadow: 0px 4px 10px rgba(79, 79, 79, 0.07);
-        .input-group-text{
-            background-color: transparent;
-            border: none;
-        }
-        .search{
-            outline: none !important;
-            border: none !important;
-        }
     }
     .notification{
         position: relative;
@@ -35,6 +27,10 @@ export const NavContainer = styled.div`
         line-height: 2px;
         
         color: #647787;                    
+    }@media (max-width: 991.98px) and (min-width: 1px){
+        .hidden{
+            display: none;
+        }
     }
 `
 
@@ -42,8 +38,14 @@ export const SidebarStyle = styled.div`
         background-color: white;
         min-height: 91vh;
         // height: 100%;
+        transition: margin-left 0.35s ease-in-out,left 0.35s ease-in-out;
         position: absolute;
         width: 260px;
+        .hidden{
+            display: none;
+        }
+        margin-left: ${props => props.isToggled ? "-260px": "0px"};
+
         img, i{
             margin-right: 10px
         }
@@ -72,12 +74,34 @@ export const SidebarStyle = styled.div`
             padding: 10px 0
             border-left: 3px solid ${BLUE};;
         }
+        ul{
+            list-style: none;
+            a{
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+
+        @media (max-width: 991.98px) and (min-width: 1px){
+            margin-left: ${props => props.isToggled ? "0px": "-260px"};
+            .hidden{
+                display: block;
+            }
+        }
+    
 `
 
 export const MainStyle = styled.div`
-        margin-left: 260px;
         max-height: 90vh;
         overflow: auto;
+        margin-left: ${props => props.isToggled == true ? "2px" : "260px"};
+        transition: margin-left 0.35s ease-in-out,left 0.35s ease-in-out;
+        @media (max-width: 991.98px) and (min-width: 1px){
+            margin-left: ${props => props.isToggled ? "270px" : "2px"}
+        }
+    
+    
 `
 
 export const WhiteBackground = styled.div`

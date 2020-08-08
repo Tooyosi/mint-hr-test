@@ -1,13 +1,26 @@
 import React from 'react';
-import { Col, Button, Image } from 'react-bootstrap';
-import { SidebarStyle } from '../../styles/style';
+import { Col, Button, Image, Navbar, Container, Nav, InputGroup, FormControl, Row } from 'react-bootstrap';
+import { SidebarStyle, NavContainer } from '../../styles/style';
 import OverviewIcon from '../../../assets/vectors/overview.png'
 import Icofont from 'react-icofont';
 import AllPayments from '../../../assets/vectors/AllPayments.png'
 import ManualSettlements from '../../../assets/vectors/ManualSettlements.png'
+import Logo from '../../../assets/logo/TransMonitor.png'
+import User from '../../../assets/logo/user.png'
 function Sidebar(props) {
     return (
-        <SidebarStyle className="py-3">
+        <SidebarStyle isToggled={props.isToggled} className="py-3">
+            <Row className="ml-4 hidden">
+                <Col sm={12}>
+                    <Image src={User} roundedCircle />
+
+                </Col>
+
+                <Col sm={12}>
+                    <div className="small hello">Hello</div>
+                            Oluwaleke Ojo
+                        </Col>
+            </Row>
             <div className="ml-4">
                 <Button variant="success">GENERATE INVOICE</Button>
             </div>
@@ -31,6 +44,27 @@ function Sidebar(props) {
             <div className="mt-3">
                 <a className="mt-2"><div className="text-muted small ml-4"><Icofont icon="ui-user" className="mt-1" />Merchant Profile</div></a>
             </div>
+            <div className="mx-4 hidden">
+                <InputGroup>
+                    <InputGroup.Prepend>
+                        <InputGroup.Text id="basic-addon1">
+                            <Icofont icon="search-1" className="mt-1" />
+
+                        </InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl type="search" className="search" placeholder="Search..." />
+
+                </InputGroup>
+                <ul className="text-muted small">
+                    <li>
+                        <a>Support</a>
+                    </li>
+                    <li>
+                        <a>FAQ</a>
+                    </li>
+                </ul>
+            </div>
+
         </SidebarStyle>
     );
 }

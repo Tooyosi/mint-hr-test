@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import { MainStyle, WhiteBackground } from '../../styles/style';
@@ -7,12 +7,15 @@ import { Line } from 'react-chartjs-2';
 import ChartImage from '../../../assets/vectors/Chart.png'
 
 function Main(props) {
-
+    const [isToggled, updateToggled] = useState(false)
+    const setToggled = ()=>{
+        updateToggled(!isToggled)
+    }
     return (
         <>
-            <Header />
-            <Sidebar />
-            <MainStyle className="pt-3">
+            <Header setToggled={setToggled} isToggled={isToggled}/>
+            <Sidebar isToggled={isToggled}/>
+            <MainStyle isToggled={isToggled} className="pt-3">
                 {props.children}
             </MainStyle>
         </>

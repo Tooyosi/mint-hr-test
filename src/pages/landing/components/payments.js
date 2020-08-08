@@ -38,11 +38,11 @@ function Payments(props) {
     }]
     return (
         <>
-            <Col sm={12}>
+            <Col sm={12} className="mt-2">
                 <h4>Payments</h4>
             </Col>
 
-            <Col sm={3}>
+            <Col md={3}  className="mt-2">
                 <small>Showing</small>
                 <StyledSelect>
                     <option>20</option>
@@ -50,14 +50,14 @@ function Payments(props) {
                 </StyledSelect>
                 <small>out of 500 payments</small>
             </Col>
-            <Col sm={6}>
+            <Col md={6}  className="mt-2">
 
                 <StyledSearch>
                     <Icofont icon="search-1" className="mt-1" />
                     <input type="search" placeholder="Search payments" />
                 </StyledSearch>
             </Col>
-            <Col sm={3}>
+            <Col md={3}  className="mt-2">
                 <small>Show</small>
                 <StyledShowSelect as="select" className="w-75 form-control ml-1 d-inline">
                     <option className="option">All</option>
@@ -67,7 +67,7 @@ function Payments(props) {
                 </StyledShowSelect>
             </Col>
             <Col sm={12}>
-                <StyledTable >
+                <StyledTable className="table table-responsive">
                     <thead>
                         <tr>
                             <td>Item Type</td>
