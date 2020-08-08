@@ -2,3 +2,8 @@
 body{
     background-color: #E5E5E5 !important;
 }
+
+.option:hover{
+        background-color: #F4F4F4 !important;
+
+}

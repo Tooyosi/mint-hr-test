@@ -9,7 +9,7 @@ function Orders(props) {
         <Col sm={12}>
             <WhiteBackground className="p-3">
                 <h5>Orders</h5>
-                <ProgressBar variant="success" now={65} />
+                <ProgressBar variant="success" now={80} />
                 <p className="orders-txt mt-2">
                     Pending Orders:<span className="yellow-color"> 20</span>
                 </p>
@@ -24,7 +24,7 @@ function Orders(props) {
         <Col sm={12} className="mt-2">
             <WhiteBackground className="p-3">
                 <h5>Payments</h5>
-                <ProgressBar variant="success" now={65} />
+                <ProgressBar variant="success" now={80} />
                 <p className="orders-txt mt-2">
                     Un-reconcilled Payments:<span className="yellow-color"> 20</span>
                 </p>

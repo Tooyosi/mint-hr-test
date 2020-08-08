@@ -9,6 +9,7 @@ import { Line } from 'react-chartjs-2';
 import ChartImage from '../../../assets/vectors/Chart.png'
 import Graph from './components/graph';
 import Orders from './components/orders';
+import Payments from './components/payments';
 
 const state = {
     labels: ['January', 'February', 'March',
@@ -148,6 +149,9 @@ class Landing extends Component {
                             <Col md={4}>
                                 <Orders />  
                             </Col>
+                        </Row>
+                        <Row className="mt-3">
+                            <Payments />
                         </Row>
                     </Container>
                 </Main>

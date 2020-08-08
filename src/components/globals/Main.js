@@ -12,7 +12,7 @@ function Main(props) {
         <>
             <Header />
             <Sidebar />
-            <MainStyle className="mt-3">
+            <MainStyle className="pt-3">
                 {props.children}
             </MainStyle>
         </>

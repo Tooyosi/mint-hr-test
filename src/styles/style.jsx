@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { WHITE, BLUE, GREEN, YELLOW } from './colors';
+import { WHITE, BLUE, GREEN, YELLOW, GREY } from './colors';
 
 
 export const NavContainer = styled.div`
@@ -40,7 +40,8 @@ export const NavContainer = styled.div`
 
 export const SidebarStyle = styled.div`
         background-color: white;
-        min-height: 100vh;
+        min-height: 91vh;
+        // height: 100%;
         position: absolute;
         width: 260px;
         img, i{
@@ -75,6 +76,8 @@ export const SidebarStyle = styled.div`
 
 export const MainStyle = styled.div`
         margin-left: 260px;
+        max-height: 90vh;
+        overflow: auto;
 `
 
 export const WhiteBackground = styled.div`
@@ -118,4 +121,74 @@ export const WhiteBackground = styled.div`
         font-weight: bold
 
     }
+`
+
+export const StyledSelect = styled.select`
+    color: ${BLUE};
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: small;
+    margin-left: 5px;
+    margin-right: 5px;
+`
+
+export const StyledShowSelect = styled.select`
+    background-color: transparent !important;
+    font-size: small;
+    .option{
+        &:hover{
+            background-color: #F4F4F4 !important;
+        }
+    }
+`
+
+
+export const StyledSearch = styled.div`   
+    width: 200px;
+    border-bottom: 0.5px solid ${GREY};
+    input{
+        width: 90%;
+        font-family: Segoe UI;
+        font-size: 11px;
+        line-height: 15px;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        color: ${GREY};
+    }
+`
+
+export const StyledTable = styled.table`
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    thead{
+        background: #EAEEF0;
+    }
+    td{
+        padding: 15px;
+
+    }
+    tbody{
+        background-color: ${WHITE};
+        td{
+            border-bottom: 1px solid #CCCFD4;   
+            font-family: Segoe UI;
+            font-size: 14px;
+            line-height: 19px;
+        }
+    }
+    .ball{
+        width: 36px;
+        height: 36px;
+        left: 317px;
+        top: 725px;
+        color: ${WHITE};
+        border-radius: 50px;
+        padding: 10px;
+        font-size: small;
+        background: #7F8FA4;
+    }
+
 `
